@@ -65,8 +65,8 @@ window.onmousemove = (e)=>{
 
 // ---- create Layers----
 particleSystems.push(new ParticleSystem(5, colorSets[colorSet][0], 70, 30, new Point(0, -2), pointer));
-particleSystems.push(new ParticleSystem(2, colorSets[colorSet][1], 160, 120, new Point(0, -1.8), pointer));
-particleSystems.push(new ParticleSystem(1, colorSets[colorSet][2], 250, 180, new Point(0, -1.3), pointer));
+particleSystems.push(new ParticleSystem(4, colorSets[colorSet][1], 160, 120, new Point(0, -1.8), pointer));
+particleSystems.push(new ParticleSystem(3, colorSets[colorSet][2], 280, 180, new Point(0, -1.3), pointer));
 
 // ---- start engine ----
 window.requestAnimationFrame(()=>{

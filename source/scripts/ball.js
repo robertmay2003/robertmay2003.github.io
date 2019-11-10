@@ -16,8 +16,6 @@ var Ball = class {
 		this.pointer = parent.pointer;
 
 		this.ignorePointer = Math.random() < 0.25;
-
-		this.onKill = function() { parent.killBall(this); };
 	}
 
 	move() {
@@ -33,18 +31,16 @@ var Ball = class {
 			);
 		}
 
-		// ---- kill borders ----
-		if (
-			(this.pos.x >= this.width + this.size + 100) ||
-			(this.pos.x <= this.size - 100) ||
-			(this.pos.y >= this.height + this.size + 100) ||
-			(this.pos.y <= this.size - 100)
-		) {
-			// Kill
-			this.onKill();
-		}
-
 		// ---- velocity ----
 		this.pos = this.pos.add(this.vel);
+	}
+
+	isOutOfBounds() {
+		return (
+			(this.pos.x >= window.innerWidth + (this.size * 2) + 100) ||
+			(this.pos.x <= -2 * this.size - 100) ||
+			(this.pos.y >= window.innerHeight + (this.size * 2) + 100) ||
+			(this.pos.y <= -2 * this.size - 100)
+		);
 	}
 };
