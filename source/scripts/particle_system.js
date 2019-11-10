@@ -7,7 +7,7 @@ var ParticleSystem = class {
 
 	process(ctx) {
 		// Spawn new balls
-		if (Math.random() < this.rate / (1000 / 60)) this.layer.spawnBall();
+		if (Math.random() < this.rate / (1000 / 60) && this.layer.balls.length <= 150) this.layer.spawnBall();
 
 		// Render
 		this.layer.renderBalls(ctx);
