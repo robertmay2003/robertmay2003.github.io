@@ -13,8 +13,6 @@ var Layer = class {
 
 	spawnBall() {
 		this.balls.push(new Ball(this));
-
-		console.log(this.balls.length);
 	}
 
 	renderBalls(ctx) {
