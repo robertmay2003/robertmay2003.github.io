@@ -1,14 +1,14 @@
 var Ball = class {
 	constructor(parent) {
 		// Upwards bias
-		this.vel = new Point(
+		this.vel = new Vector2(
 			 parent.velocity.x - (Math.random() * parent.velocity.x / 5), parent.velocity.y - (Math.random() * parent.velocity.y / 5)
 		);
 
 		// Spawn at bottom
-		this.pos = new Point(
+		this.pos = new Vector2(
 			Math.random() * parent.width,
-			parent.height + 100
+			parent.height + 150
 		);
 		this.size = (parent.maxRadius - parent.minRadius) * Math.random() + parent.minRadius;
 		this.width = parent.width;
@@ -24,7 +24,7 @@ var Ball = class {
 			var dx = this.pointer.pos.x - this.pos.x;
 			var dy = this.pointer.pos.y - this.pos.y;
 			this.pos = this.pos.add(
-				new Point(
+				new Vector2(
 					1 - dy / 200,
 					1 - dx / 200
 				)
@@ -37,10 +37,10 @@ var Ball = class {
 
 	isOutOfBounds() {
 		return (
-			(this.pos.x >= window.innerWidth + (this.size * 2) + 100) ||
-			(this.pos.x <= -2 * this.size - 100) ||
-			(this.pos.y >= window.innerHeight + (this.size * 2) + 100) ||
-			(this.pos.y <= -2 * this.size - 100)
+			(this.pos.x >= window.innerWidth + (this.size * 2) + 200) ||
+			(this.pos.x <= -2 * this.size - 200) ||
+			(this.pos.y >= window.innerHeight + (this.size * 2) + 200) ||
+			(this.pos.y <= -2 * this.size - 200)
 		);
 	}
 };

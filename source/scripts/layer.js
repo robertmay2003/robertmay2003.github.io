@@ -21,6 +21,8 @@ var Layer = class {
 		var i = 0;
 		var spliceIndices = [];
 		ctx.fillStyle = this.color;
+
+		// Draw ball
 		for (var ball of this.balls) {
 			if (ball.isOutOfBounds()) { spliceIndices.push(i) }
 
@@ -33,15 +35,17 @@ var Layer = class {
 			i++
 		}
 
-		// Remove first ball if out of bounds
+		// All balls out of bounds
 		for (var spliceIndex of spliceIndices) {
 			this.balls.splice(spliceIndex, 1);
 		}
 
 		// remove balls if too many
-		if (this.balls.length > 100) {
-			this.balls[0].size -= 1;
-			if (this.balls[0].size <= 0) { this.balls.splice(0, 1) }
+		if (this.balls.length > 60) {
+			for (var j = 0; j < this.balls.length - 60; j++) {
+				this.balls[j].size -= 0.5;
+				if (this.balls[j].size <= 1) { this.balls.splice(j, 1) }
+			}
 		}
 	}
 };
